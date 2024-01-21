@@ -10,16 +10,24 @@ screen.bgcolor("grey")
 screen.listen()
 player = Player()
 screen.onkey(player.up, "Up")
-positions =
+car_list = []
+
+def generate_car():
+    for x in range(40):
+        if x == 7:
+            new_car = Car((-380, random.randint(-230, 230)))
+            car_list.append(new_car)
 
 
-car = Car()
+
 game_on = True
 
 while game_on:
     time.sleep(0.2)
     screen.update()
-    car.move()
+    generate_car()
+    for cars in car_list:
+        cars.move()
 
 
 
